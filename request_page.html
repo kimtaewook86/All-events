@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Page</title>
+    <!-- Include Bootstrap for styling -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <!-- Notice Section -->
+        <div id="notice" class="mb-4">
+            <h3>Notice</h3>
+            <p>This is where the latest announcement or notice will be displayed.</p>
+        </div>
+
+        <!-- Comments Section -->
+        <div id="comments-section">
+            <h4>Product Requests</h4>
+            <textarea id="comment-input" class="form-control mb-2"
+                placeholder="Post your product request here..."></textarea>
+            <button class="btn btn-primary" onclick="postComment()">Submit</button>
+
+            <h5 class="mt-4">Top Comments</h5>
+            <ul id="comments-list" class="list-group mt-3">
+                <!-- Comments will be dynamically added here -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Firebase JS SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+    <!-- JavaScript for handling comments -->
+    <script src="comments.js"></script>
+</body>
+
+</html>

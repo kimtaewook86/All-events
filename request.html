@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Page</title>
+    <!-- Include Bootstrap for styling -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <!-- Notice Section -->
+        <div id="notice" class="mb-4">
+            <h3>공지</h3>
+            <p>이 페이지는 내가 원하는 상품 및 브랜드 를 요청하는 페이지 입니다</p>
+        </div>
+
+        <!-- Comments Section -->
+        <div id="comments-section">
+            <h4>상품 이름 입력</h4>
+            <textarea id="comment-input" class="form-control mb-2"
+                placeholder="원하시는 제품을 작성해주세요 베스트 댓글 시 3개월 기준 해당 브랜드에 제안합니다..."></textarea>
+            <button class="btn btn-primary" onclick="postComment()">제출하기</button>
+
+            <h5 class="mt-4">Top Comments</h5>
+            <ul id="comments-list" class="list-group mt-3">
+                <!-- Comments will be dynamically added here -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Firebase JS SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+
+    <!-- JavaScript for handling comments -->
+    <script src="comments.js"></script> <!-- Place this before the closing </body> tag -->
+</body>
+
+</html>

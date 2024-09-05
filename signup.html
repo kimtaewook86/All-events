@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .terms-section {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+        }
+
+        .terms-title {
+            font-weight: bold;
+        }
+
+        .terms-check {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .terms-check:last-child {
+            border-bottom: none;
+        }
+
+        .terms-check input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-light py-1">
+        <div class="container">
+            <h1 class="display-4 text-center">회원가입</h1>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <!-- 전체 동의 -->
+        <div class="terms-section">
+            <div class="terms-check">
+                <input type="checkbox" id="agreeAll" name="agreeAll" onclick="toggleAll(this)">
+                <label for="agreeAll" class="terms-title">전체 동의하기</label>
+            </div>
+        </div>
+
+        <!-- 개별 약관들 -->
+        <div class="terms-section">
+            <div class="terms-check">
+                <input type="checkbox" id="agree1" name="agree1" class="required">
+                <label for="agree1" class="terms-title">[필수] 네이버 이용약관 동의</label>
+            </div>
+            <div class="terms-check">
+                <input type="checkbox" id="agree2" name="agree2" class="required">
+                <label for="agree2" class="terms-title">[필수] 개인정보 수집 및 이용 동의</label>
+            </div>
+            <div class="terms-check">
+                <input type="checkbox" id="agree3" name="agree3">
+                <label for="agree3" class="terms-title">[선택] 실명 인증된 아이디로 가입</label>
+            </div>
+            <div class="terms-check">
+                <input type="checkbox" id="agree4" name="agree4">
+                <label for="agree4" class="terms-title">[선택] 위치기반서비스 이용약관 동의</label>
+            </div>
+            <div class="terms-check">
+                <input type="checkbox" id="agree5" name="agree5">
+                <label for="agree5" class="terms-title">[선택] 개인정보 수집 및 이용 동의 (이벤트, 혜택 정보 수신)</label>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="button" class="btn btn-primary" onclick="validateAndProceed()">다음</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript 코드 추가 -->
+    <script>
+        function toggleAll(source) {
+            const checkboxes = document.querySelectorAll('.terms-section input[type="checkbox"]:not(#agreeAll)');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = source.checked;
+            });
+        }
+
+        function validateAndProceed() {
+            // 필수 항목들이 모두 체크되었는지 확인
+            const requiredCheckboxes = document.querySelectorAll('.terms-section .required');
+            let allChecked = true;
+            requiredCheckboxes.forEach(checkbox => {
+                if (!checkbox.checked) {
+                    allChecked = false;
+                }
+            });
+
+            if (allChecked) {
+                // 필수 항목들이 모두 체크된 경우, 다음 페이지로 이동
+                window.location.href = 'personal-info.html';
+            } else {
+                // 필수 항목들이 체크되지 않은 경우, 경고 메시지 표시
+                alert('모든 [필수] 항목에 동의해 주세요.');
+            }
+        }
+    </script>
+</body>
+
+</html>

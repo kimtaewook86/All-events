@@ -1,0 +1,187 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+
+    font-family: '맑은 고딕', 'Malgun Gothic', Arial, sans-serif;
+    /* 원하는 폰트 이름으로 변경 */
+    font-size: 12px;
+    /* 기본 폰트 크기 설정 */
+    color: #333;
+    /* 기본 폰트 색상 설정 */
+}
+
+/* 회원가입 페이지 스타일 수정 */
+.terms-section {
+    border: 3px solid #ddd;
+    border-radius: 10px;
+    /* 박스 모서리를 둥글게 */
+    padding: 20px;
+    /* 박스 안쪽 여백을 넉넉히 설정 */
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    width: 60%;
+    /* 박스 크기를 페이지 너비에 맞춤 */
+    max-width: 600px;
+    /* 박스의 최대 너비를 설정 */
+    margin: 0 auto;
+    /* 가운데 정렬을 위해 좌우 여백 자동 설정 */
+}
+
+.terms-title {
+    font-weight: bold;
+    text-align: center;
+    /* 글씨를 가운데 정렬 */
+}
+
+.terms-check {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    /* 체크박스와 텍스트를 가운데 정렬 */
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    /* 구분선 추가 */
+}
+
+.terms-check input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.text-center button {
+    margin-top: 20px;
+    width: 100%;
+    /* 버튼을 박스 너비에 맞춤 */
+}
+
+
+h1.display-4 {
+    font-size: 2.5rem;
+    /* 제목의 폰트 크기 조정 */
+    font-weight: bold;
+    /* 제목의 폰트 굵기 조정 */
+    color: #000;
+    /* 제목의 색상 설정 */
+}
+
+.terms-title {
+    font-size: 1rem;
+    /* 약관 제목의 폰트 크기 설정 */
+    font-weight: normal;
+    /* 약관 제목의 폰트 굵기 설정 */
+}
+
+/* Nav Bar 고정 해제 */
+.navbar {
+    position: static;
+}
+
+.navbar-nav .nav-link[href="#features"] {
+    font-size: 12px;
+    /* 원하는 크기로 설정 */
+}
+
+.navbar-nav .nav-link[href="#about"] {
+    font-size: 12px;
+}
+
+.navbar-nav .nav-link[href="#testimonials"] {
+    font-size: 12px;
+}
+
+.navbar-nav .nav-link[href="#contact"] {
+    font-size: 12px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
+.product-item {
+    background-color: white;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(10, 7, 7, 0.1);
+}
+
+.product-rank {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #edf1ea;
+    color: rgb(236, 118, 118);
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.product-name {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.product-brand {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 5px;
+}
+
+.discounted-price {
+    font-weight: bold;
+    color: #d9534f;
+}
+
+.product-discount {
+    font-size: 0.9rem;
+    color: #d9534f;
+}
+
+.product-reviews {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+/* "다음" 버튼 스타일 수정 */
+.text-center button {
+    margin-top: 20px;
+    width: auto;
+    /* 버튼의 너비를 자동으로 설정 */
+    padding: 5px 15px;
+    /* 버튼의 안쪽 여백 조정 */
+    font-size: 14px;
+    /* 버튼 글씨 크기 조정 */
+}
+
+
+
+/* All events 링크의 색상을 검정으로 변경 */
+.event-link {
+    color: black;
+    text-decoration: none;
+    /* 밑줄 제거 (선택사항) */
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All events</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- 페이지 헤더 -->
+    <header class="bg-light py-1">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-expanded="true">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse justify-content-end mt-2" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <!-- 회원가입 링크 수정 -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="signup.html">회원가입</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="bid.html">광고주 등록</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="request.html">요청합니다</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">문의하기</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h1 class="display-4 text-center">
+                <a href="#" class="event-link" onclick="resetPage(); return false;">All events</a>
+            </h1>
+        </div>
+    </header>
+
+    <!-- 가격대별 버튼 -->
+    <div class="container text-center mt-1 mb-1">
+        <div class="row">
+            <div class="col text-center mt-3 mb-1 ">
+                <button type="button" class="btn btn-outline-Secondary" onclick="filterProducts(300000)">~
+                    300,000</button>
+            </div>
+            <div class="col text-center mt-3 mb-1">
+                <button type="button" class="btn btn-outline-Secondary" onclick="filterProducts(1000000)">300,000 ~
+                    1,000,000</button>
+            </div>
+            <div class="col text-center mt-3 mb-1">
+                <button type="button" class="btn btn-outline-Secondary" onclick="filterProducts(1000001)">1,000,000
+                    ~</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 상품 리스트 -->
+    <div class="container mt-5">
+        <div id="product-list">
+            <!-- 상품 항목은 자바스크립트를 통해 동적으로 추가됩니다 -->
+        </div>
+    </div>
+
+
+
+    <!-- Firebase JS SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+
+    <!-- JavaScript 파일 연결 -->
+    <script src="index.js"></script>
+    <script src="comments.js"></script> <!-- This is the new script for handling comments -->
+</body>
+
+</html>
