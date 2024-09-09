@@ -179,6 +179,12 @@ header {
 }
 
 
+#comment-input {
+    width: 300px; /* Adjust the width as needed */
+    height: 200px;
+    margin: 0 auto; /* Adjust the height as needed */
+}
+
 
 /* All events 링크의 색상을 검정으로 변경 */
 .event-link {
