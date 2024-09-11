@@ -43,6 +43,7 @@ function loadProducts() {
                         class="discounted-price text-danger">${product.discountedPrice.toLocaleString('ko-KR')}원</span></p>
                 <p class="product-discount">${product.discount}</p>
                 <p class="product-reviews">${product.reviews}</p>
+                
             </div>
         `;
 
@@ -64,4 +65,3 @@ document.addEventListener('DOMContentLoaded', () => {
     loadProducts();
     window.addEventListener('scroll', handleScroll);
 });
-

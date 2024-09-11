@@ -48,28 +48,31 @@
         </div>
     </header>
 
+    <!-- 검색 박스 추가 -->
+    <div class="container text-center mt-3">
+        <div class="search-container">
+            <form action="/search" method="get">
+                <input type="text" placeholder="Search events..." name="query" class="form-control d-inline-block w-50">
+                <button type="submit" class="btn btn-primary ml-2">Search</button>
+            </form>
+        </div>
+    </div>
+
     <!-- 가격대별 버튼 -->
     <div class="container text-center mt-1 mb-1">
         <div class="row">
-
-
-                    <div class="container text-center mt-1 mb-1">
-                        <div class="row">
-                            <div class="col text-center mt-3 mb-1">
-                                <a href="price-under-300k.html" class="btn btn-outline-Secondary">~ 300,000</a>
-                            </div>
-                            <div class="col text-center mt-3 mb-1">
-                                <a href="price-under-1000k.html" class="btn btn-outline-Secondary">300,000 ~ 1,000,000</a>
-                            </div>
-                            <div class="col text-center mt-3 mb-1">
-                                <a href="price-under-1000k~.html" class="btn btn-outline-Secondary">1,000,000 ~</a>
-                            </div>
-                        </div>
-                    </div>
-                    
+            <div class="col text-center mt-3 mb-1">
+                <a href="price-under-300k.html" class="btn btn-outline-Secondary">~ 300,000</a>
+            </div>
+            <div class="col text-center mt-3 mb-1">
+                <a href="price-under-1000k.html" class="btn btn-outline-Secondary">300,000 ~ 1,000,000</a>
+            </div>
+            <div class="col text-center mt-3 mb-1">
+                <a href="price-under-1000k~.html" class="btn btn-outline-Secondary">1,000,000 ~</a>
             </div>
         </div>
     </div>
+
     <!-- 상품 리스트 -->
     <div class="container mt-5">
         <div id="product-list">

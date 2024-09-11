@@ -4,14 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1,000,000 원 이상</title>
+    <title>1,000,000원 ~ 이상 상품</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+    <!-- "All events" Link at the Top -->
+    <div class="container mt-3 text-center">
+        <h2>
+            <a href="index.html" class="text-dark" style="text-decoration: none;">All events</a>
+        </h2>
+    </div>
+
+    <!-- Search Box under "All events" -->
+    <div class="container mt-3 text-center">
+        <form id="search-form" class="form-inline justify-content-center">
+            <input type="text" id="search-input" class="form-control mr-2" placeholder="Search products...">
+            <button type="button" class="btn btn-primary" onclick="searchProducts()">Search</button>
+        </form>
+    </div>
+
     <div class="container mt-5">
-        <h1 class="display-4 text-center">1,000,000원 이상 상품</h1>
+        <h1 class="display-4 text-center">1,000,000원 ~ 이상 상품</h1>
         <div id="product-list" class="row justify-content-center">
             <!-- Products will be dynamically added here -->
         </div>
@@ -34,8 +49,8 @@
             reviews: `리뷰 ${Math.floor(Math.random() * 500)}개`
         }));
 
-        // Filter products with discounted price above 1,000,000 원
-        const filteredProducts = products.filter(product => product.discountedPrice > 1000000);
+        // Filter products with discounted price over 1,000,000 원
+        let filteredProducts = products.filter(product => product.discountedPrice > 1000000);
 
         function loadProducts() {
             const productList = document.getElementById('product-list');
@@ -63,7 +78,18 @@
                 productList.appendChild(productItem);
             });
         }
-        
+
+        // Search Functionality
+        function searchProducts() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            filteredProducts = products.filter(product => 
+                product.discountedPrice > 1000000 &&
+                (product.name.toLowerCase().includes(searchInput) || 
+                 product.brand.toLowerCase().includes(searchInput))
+            );
+            loadProducts(); // Reload products based on search
+        }
+
         // Load the filtered products when the page loads
         document.addEventListener('DOMContentLoaded', loadProducts);
     </script>

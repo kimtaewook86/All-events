@@ -10,6 +10,21 @@
 </head>
 
 <body>
+    <!-- "All events" Link at the Top -->
+    <div class="container mt-3 text-center">
+        <h2>
+            <a href="index.html" class="text-dark" style="text-decoration: none;">All events</a>
+        </h2>
+    </div>
+
+    <!-- Search Box under "All events" -->
+    <div class="container mt-3 text-center">
+        <form id="search-form" class="form-inline justify-content-center">
+            <input type="text" id="search-input" class="form-control mr-2" placeholder="Search products...">
+            <button type="button" class="btn btn-primary" onclick="searchProducts()">Search</button>
+        </form>
+    </div>
+
     <div class="container mt-5">
         <h1 class="display-4 text-center">300,000 이하 상품</h1><!-- Product List Section -->
         <div id="product-list" class="row justify-content-center">
@@ -36,7 +51,7 @@
         }));
 
         // Filter products with discounted price under 300,000 원
-        const filteredProducts = products.filter(product => product.discountedPrice <= 300000);
+        let filteredProducts = products.filter(product => product.discountedPrice <= 300000);
 
         function loadProducts() {
             const productList = document.getElementById('product-list');
@@ -64,7 +79,17 @@
                 productList.appendChild(productItem);
             });
         }
-        
+
+        // Search Functionality
+        function searchProducts() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            filteredProducts = products.filter(product => 
+                product.discountedPrice <= 300000 &&
+                (product.name.toLowerCase().includes(searchInput) || 
+                 product.brand.toLowerCase().includes(searchInput))
+            );
+            loadProducts(); // Reload products based on search
+        }
 
         // Load the filtered products when the page loads
         document.addEventListener('DOMContentLoaded', loadProducts);
