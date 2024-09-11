@@ -1,7 +1,7 @@
 // 상품 데이터를 저장하는 배열
 const products = Array.from({ length: 100 }, (_, i) => ({
     rank: i + 1,
-    imageSrc: `./images/${(i % 10) + 1}.jpg`, // 로드한 이미지들 순서대로 반복 사용
+    imageSrc: `./images/${(i + 1) % 10 === 0 ? 10 : (i + 1) % 10}.jpg`, // 로드한 이미지들 순서대로 반복 사용
     name: `상품명 ${i + 1}`,
     brand: '브랜드명',
     originalPrice: (Math.floor(Math.random() * 100) + 1) * 10000, // 랜덤 원가 설정
@@ -9,6 +9,9 @@ const products = Array.from({ length: 100 }, (_, i) => ({
     discount: '20%',
     reviews: `리뷰 ${Math.floor(Math.random() * 500)}개`
 }));
+
+// 첫 번째 상품 이미지 수동 설정
+products[0].imageSrc = './images/1.jpg';
 
 let loadedProducts = 0;
 const productsPerLoad = 10;
@@ -61,3 +64,4 @@ document.addEventListener('DOMContentLoaded', () => {
     loadProducts();
     window.addEventListener('scroll', handleScroll);
 });
+

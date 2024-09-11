@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>300,000 ~ 1,000,000 원</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="display-4 text-center">300,000 ~ 1,000,000원 이하 상품</h1>
+        <div id="product-list" class="row justify-content-center">
+            <!-- Products will be dynamically added here -->
+        </div>
+    </div>
+    <!-- Firebase JS SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+
+    <!-- JavaScript to Load Products -->
+    <script>
+        // Define the products array (if not already defined in another script)
+        const products = Array.from({ length: 100 }, (_, i) => ({
+            rank: i + 1,
+            imageSrc: `./images/${(i + 1) % 10 === 0 ? 10 : (i + 1) % 10}.jpg`,
+            name: `상품명 ${i + 1}`,
+            brand: '브랜드명',
+            originalPrice: (Math.floor(Math.random() * 100) + 1) * 10000,
+            discountedPrice: (Math.floor(Math.random() * 100) + 1) * 10000 * 0.8,
+            discount: '20%',
+            reviews: `리뷰 ${Math.floor(Math.random() * 500)}개`
+        }));
+
+        // Filter products with discounted price between 300,000 and 1,000,000 원
+        const filteredProducts = products.filter(product => product.discountedPrice >= 300000 && product.discountedPrice <= 1000000);
+
+        function loadProducts() {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = ''; // Clear the existing list
+
+            filteredProducts.forEach(product => {
+                const productItem = document.createElement('div');
+                productItem.className = 'col-6 col-md-4 col-lg-2 mb-4';
+
+                productItem.innerHTML = `
+                    <div class="product-item border p-3">
+                        <div class="product-rank">${product.rank}</div>
+                        <img src="${product.imageSrc}" class="img-fluid mb-2" alt="상품 이미지">
+                        <h5 class="product-name">${product.name}</h5>
+                        <p class="product-brand">${product.brand}</p>
+                        <p class="product-price">
+                            <span class="original-price">${product.originalPrice.toLocaleString('ko-KR')}원</span>
+                            <span class="discounted-price text-danger">${product.discountedPrice.toLocaleString('ko-KR')}원</span>
+                        </p>
+                        <p class="product-discount">${product.discount}</p>
+                        <p class="product-reviews">${product.reviews}</p>
+                    </div>
+                `;
+
+                productList.appendChild(productItem);
+            });
+        }
+        
+        // Load the filtered products when the page loads
+        document.addEventListener('DOMContentLoaded', loadProducts);
+    </script>
+</body>
+
+</html>
